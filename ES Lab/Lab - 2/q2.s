@@ -1,3 +1,6 @@
+;Write an ARM assembly language program to transfer a 32-bit number from one location in the data memory
+;to another location in the data memory.
+
 VAL1 DCD OxFFFF1111 , Ox12341111
 VAL2 DCD OxABCD1234 , Ox12345678
 
