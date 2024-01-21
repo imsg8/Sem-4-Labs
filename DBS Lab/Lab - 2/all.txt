@@ -19,9 +19,9 @@ insert into Department values (1,'cse');
 insert into Department values (2,'it');
 insert into Department values (3,'ece');
 
-insert into Employee values (1,'taksh','M',69000,'Manipal',1);
-insert into Employee values (2,'sara','F',42000,'Manipal',3);
-insert into Employee values (3,'jay','M',30000,'Manipal',2);
+insert into Employee values (1,'Shivang','M',65000,'Manipal',1);
+insert into Employee values (2,'Janav','F',62000,'Manipal',3);
+insert into Employee values (3,'Laven','M',69000,'Manipal',2);
 
 5)
 insert into Department values (2,'mechx');
