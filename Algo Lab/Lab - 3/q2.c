@@ -1,31 +1,34 @@
-#include <stdio.h>
-#include <string.h>
-int main() {
-    int textlen, patternl, flag = 0, count = 0;
-    printf("Enter the Text: \n");
-    char text[100];
-    scanf("%s", text);
-    printf("Enter the Pattern: \n");
-    char pattern[100];
-    scanf("%s", pattern);
-    textlen = strlen(text);
-    patternl = strlen(pattern);
-    for (int i = 0; i <= textlen - patternl; i++) {
-        int j = 0;
-        while (j < patternl && pattern[j] == text[j + i]) {
+/*Write a program to implement brute-force string matching. Analyze its time
+efficiency.*/
+
+#include<stdio.h>
+#include<string.h>
+
+void main(){
+int i, j, n, m, flag=0, count=0;
+char string[100], substr[100];
+printf("Enter the String: ");
+scanf("%s", string);
+printf("Enter the Sub-String: ");
+scanf("%s", substr);
+n = strlen(string);
+m = strlen(substr);
+
+for(i = 0 ; i <= n-m ; i++){
+    j = 0;
+        while(j < m && substr[j] == string[j+i]){
             count++;
             j++;
         }
-        if (j == patternl) {
-            flag = 1;
-            break;
-        }
-    }
-    if (flag == 1)
-        printf("Pattern Found at Position: %d \n", i);
-    else
-        printf("Pattern not Found! \n");
+    if(j == m){
+        flag = 1;
+        break;
+    } 
+}
 
-    printf("Count is: %d\n", count);
-    return 0;
+if(flag == 1)
+    printf("Sub-String found at position: %d \n",i);
+else
+    printf("Sub-String not Found!\n");
+printf("Count is: %d \n", count);
 }
