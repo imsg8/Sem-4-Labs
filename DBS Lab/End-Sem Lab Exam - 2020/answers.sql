@@ -44,9 +44,9 @@ insert into match values(2750, 'Sri Lanka', 'India', 'Brisbane', to_date('7-4-20
 
 insert into player values(89001, 'Tendulkar', 'Sachin', 'India', 1973, 'Mumbai');
 insert into player values(27002, 'Sharma', 'Ishant', 'India', 1988, 'Delhi');
-insert into player values(89001, 'Lee', 'Brett', 'Australia', 1976, 'Wollongong');
-insert into player values(89001, 'Lara', 'Brian', 'West Indies', 1969, 'Santa Cruz');
-insert into player values(89001, 'Jayasurya', 'Sanath', 'Sri Lanka', 1969, 'Matara');
+insert into player values(99001, 'Lee', 'Brett', 'Australia', 1976, 'Wollongong');
+insert into player values(98002, 'Lara', 'Brian', 'West Indies', 1969, 'Santa Cruz');
+insert into player values(91001, 'Jayasurya', 'Sanath', 'Sri Lanka', 1969, 'Matara');
 
 
 insert into batting values(2689, 89001, 71, 1);
