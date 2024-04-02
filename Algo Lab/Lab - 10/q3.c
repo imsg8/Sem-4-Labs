@@ -1,11 +1,11 @@
 #include <stdio.h>
-#define MAX_ITEMS 100
+#define maxitems 100
 
 int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
-void KnapSack(int KS[][MAX_ITEMS], int n, int w, int V[], int W[]) {
+void KnapSack(int KS[][maxitems], int n, int w, int V[], int W[]) {
     int i, j;
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= w; j++) {
@@ -34,7 +34,7 @@ int main() {
     for (i = 1; i <= n; i++) {
         scanf("%d", &V[i]);
     }
-    int KS[n + 1][MAX_ITEMS];
+    int KS[n + 1][maxitems];
     KnapSack(KS, n, w, V, W);
     printf("\nKnapSack Table:\n");
     for (i = 0; i <= n; i++) {
