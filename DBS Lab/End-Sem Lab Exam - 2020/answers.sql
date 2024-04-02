@@ -27,8 +27,8 @@ create table player(
 create table batting(
     matchid number(10),
     playerid number(10),
-    battingorder number(10),
     runsscored number(10),
+    battingorder number(10),
     foreign key (matchid) references match(matchid),
     foreign key (playerid) references player(playerid)
 );
@@ -57,3 +57,20 @@ insert into batting values(2755, 89001, 44, 1);
 insert into batting values(2750, 89001, 40, 4);
 insert into batting values(2755, 27002, 29, 3);
 insert into batting values(2675, 27002, 0, 4);
+
+
+
+-- SQL QUERIES
+
+-- Q) Find all the information about players from India who were born after 1975.
+select * from player where country='India' and yearborn > 1975;
+
+-- Q) List matches played in which TeamName1 is India or Australia.
+select * from match where teamname1 in ('India', 'Australia');
+
+-- Q) Find the names of all players that have batted in all the ODI matches in Melbourne ground.
+select * from match a, player b, batting c where b.playerid = c.playerid and c.matchid = a.matchid and a.ground = 'Melbourne'
+-- NEED TO CHECK THIS ONCE //
+
+-- Q) Create a PLSQL block to read a player id and display his total number of runs in words.
+-- (i.e. if the total runs is 10 then display “ONE” "ZERO”).
