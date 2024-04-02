@@ -74,3 +74,36 @@ select * from match a, player b, batting c where b.playerid = c.playerid and c.m
 
 -- Q) Create a PLSQL block to read a player id and display his total number of runs in words.
 -- (i.e. if the total runs is 10 then display “ONE” "ZERO”).
+DECLARE
+    runstotal batting.runsscored%TYPE;
+    id Player.playerid%TYPE;
+    digit NUMBER;
+    number_string VARCHAR2(20);
+BEGIN
+    dbms_output.put_line('Enter Player Id:');
+	id := &playerID;
+    SELECT SUM(runsscored) INTO runstotal FROM batting WHERE playerid = id;
+
+    -- cnvt runs into str
+    number_string := TO_CHAR(runstotal);
+
+    dbms_output.put_line('Total Runs: ' || runstotal);
+
+    dbms_output.put_line('Digits:');
+    FOR i IN 1..LENGTH(number_string) LOOP
+        digit := TO_NUMBER(SUBSTR(number_string, i, 1)); --str back to num for displaying ease
+        CASE digit
+            WHEN 0 THEN dbms_output.put_line('ZERO');
+            WHEN 1 THEN dbms_output.put_line('ONE');
+            WHEN 2 THEN dbms_output.put_line('TWO');
+            WHEN 3 THEN dbms_output.put_line('THREE');
+            WHEN 4 THEN dbms_output.put_line('FOUR');
+            WHEN 5 THEN dbms_output.put_line('FIVE');
+            WHEN 6 THEN dbms_output.put_line('SIX');
+            WHEN 7 THEN dbms_output.put_line('SEVEN');
+            WHEN 8 THEN dbms_output.put_line('EIGHT');
+            WHEN 9 THEN dbms_output.put_line('NINE');
+        END CASE;
+    END LOOP;
+END;
+/
