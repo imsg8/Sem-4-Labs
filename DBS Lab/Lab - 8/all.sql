@@ -158,3 +158,31 @@ begin
     end loop;
 end;
 /
+
+    
+-- ADDITIONAL EXERCISES
+
+    
+-- AD Question 1
+
+declare
+	cursor c is select * from (select * from instructor order by salary desc) where rownum < 11;
+begin
+	for i in c loop
+	dbms_output.put_line(i.name || ' ' || i.dept_name || ' ' || i.salary);
+	end loop;
+end;
+/
+
+-- AD Question 2 part (i)
+
+declare
+	cursor c is select * from instructor order by salary desc;
+begin
+	for i in c loop
+    if c%ROWCOUNT > 11 then exit;
+	end if;
+	dbms_output.put_line(i.name || ' ' || i.dept_name || ' ' || i.salary);
+	end loop;
+end;
+/
