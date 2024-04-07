@@ -72,6 +72,9 @@ select * from match where teamname1 in ('India', 'Australia');
 select * from match a, player b, batting c where b.playerid = c.playerid and c.matchid = a.matchid and a.ground = 'Melbourne'
 -- NEED TO CHECK THIS ONCE //
 
+-- Q) Find the youngest player.
+select * from player order by yearborn asc fetch first row only;
+
 -- Q) Create a PLSQL block to read a player id and display his total number of runs in words.
 -- (i.e. if the total runs is 10 then display “ONE” "ZERO”).
 DECLARE
