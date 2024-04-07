@@ -110,3 +110,19 @@ BEGIN
     END LOOP;
 END;
 /
+
+-- OR YOU CAN DO THIS AS WELL
+
+declare
+	id number(10);
+	runstotal number(10);
+    str varchar(20);
+begin
+	id := 98002;
+	select sum(runsscored) into runstotal from batting where playerid = id;
+	str := to_char(to_date(to_char(runstotal), 'yyyy'), 'year');
+	dbms_output.put_line(str);
+end;
+/
+
+-- THANKS TO MY DEAR FRIEND LAVITRA SRIVASTAVA FOR BRAIN-STORMING THIS AMAZING METHOD xD
