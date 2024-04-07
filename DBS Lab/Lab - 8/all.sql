@@ -74,7 +74,7 @@ begin
     for i in c
     loop
         select tot_cred into cr from student where id = i.id;
-        if cr < 40 then
+        if cr < 30 then
             delete from takes where id = i.id and course_id = i.course_id;
         end if;
     end loop;
