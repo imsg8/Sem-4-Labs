@@ -136,8 +136,8 @@ int main(void)
 				{
 					break;
 				}
-			}
-			if(flag)
+				}
+				if(flag)
 				{
 					break;
 				}
