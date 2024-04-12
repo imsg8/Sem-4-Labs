@@ -1,0 +1,44 @@
+;RECURSION FACT FOR AN ARRAY
+	AREA RESET, DATA, READONLY
+	EXPORT __Vectors
+__Vectors
+	DCD 0X10001000
+	DCD Reset_Handler
+	ALIGN
+	AREA mycode, CODE, READONLY
+	ENTRY
+	EXPORT Reset_Handler
+	
+Reset_Handler
+	LDR R0,=SRC
+	LDR R1,=DST
+	LDR R2,=N
+	LDR R3,[R2] ;COUNTER
+
+L1	LDR R5,[R0],#4 ;FIRST NUMBER
+	MOV R6,R5 ;2 copies of the number
+	SUB R3,#1
+	CMP R3,#0
+	BEQ STOP
+	BL fct
+	STR R5,[R1],#4
+	B L1
+fct	
+	push {LR}
+	SUB R6,#1
+	CMP R6,#1
+	BEQ p
+	MUL R5,R5,R6
+	B fct
+	
+p	pop {PC}
+
+STOP
+	B STOP
+
+N 	DCD 4
+SRC DCD 5,6,3,8
+	AREA mydata, DATA, READWRITE
+DST DCD 0
+	END
+	
